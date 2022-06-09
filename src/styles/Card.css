@@ -1,10 +1,4 @@
-#body{
-    background-image: url('https://i.pinimg.com/originals/08/88/95/08889521e2d4e8be9bebcc0d34fcc5d8.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.h2{
-    
+h2{
     margin-left: 100px;
     color: red;
 }
@@ -19,8 +13,8 @@
 
 */
 .card{
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-bottom: 50px;
+    margin-left: 100px;
     width: 400px;
     height: 500px;
     display:inline-flex;
@@ -36,4 +30,11 @@
 .Planets{
     margin-top: 30px;
     margin-bottom: 50px;
+}
+#boton1{
+    margin-top: 130px;
+}
+#boton2{
+    margin-top: 130px;
+    margin-left: 210px;
 }

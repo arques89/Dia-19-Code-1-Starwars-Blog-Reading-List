@@ -1,0 +1,17 @@
+footer{
+    display: flex;
+    width: 100%;
+    background-color: grey;
+}
+#icon1{
+    width: 5%;
+    margin-left: 0%;
+    height: 5%;
+}
+
+#icon3{
+    background-color: grey;
+    width: 5%;
+    margin-left: 43%;
+    height: 5%;
+}
