@@ -1,10 +1,10 @@
 import React from 'react'
-import { useParams } from "react-router";
+
 import './Person.css'
 
 const Person = () =>{
     
-    const { id } = useParams()
+   
     
    
     return(

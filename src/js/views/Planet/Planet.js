@@ -13,7 +13,7 @@ const Planet = () =>{
                     <img className='imagenDEscription' />
                 </div>
                 <div className='data'>       
-                    <h1>Luke Skywalker</h1>
+                    <h1>Tatoine</h1>
                     <p>A person within the Star Wars universe</p>
                 </div>
             </div>

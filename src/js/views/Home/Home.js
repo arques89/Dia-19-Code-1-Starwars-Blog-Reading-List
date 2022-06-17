@@ -30,20 +30,23 @@ export const Home = () => {
 			.catch((error) => console.log(error))
 	}
 
-	const [person , setPerson] = useState([]);
+	// const { id } = useParams()
+	// const [person , setPerson] = useState([]);
 
-    const fetchPerson = (path) => {
-        fetch('https://www.swapi.tech/api/people/' + path)
-            .then((response) => response.json())
-            .then(data => setPerson(data.results))
-            .catch((error) => console.log(error));
-    };
+    // const fetchPerson = (path) => {
+    //     fetch('https://www.swapi.tech/api/people/' + path)
+    //         .then((response) => response.json())
+    //         .then(data => setPerson(data.results))
+    //         .catch((error) => console.log(error));
+    // };
 
 	useEffect(() => {
 		fetchCharacters();
 		fetchPlanets()
-		fetchPerson('/person' + id)
+		//fetchPerson('/person' + id)
 	}, []); 
+
+
 	
 	return (
 	<div id="body">
