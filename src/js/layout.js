@@ -2,9 +2,10 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
-import { Home } from "./views/home";
+import { Home } from "./views/Home/Home";
 import { Demo } from "./views/demo";
-import { Single } from "./views/single";
+import Person from "./views/Person/Person.js";
+import Planet from "./views/Planet/Planet.js";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -15,6 +16,7 @@ const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
 	// you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
 	const basename = process.env.BASENAME || "";
+	
 
 	return (
 		<div>
@@ -25,11 +27,11 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
-						<Route exact path="/demo">
-							<Demo />
+						<Route exact path="/Person/:id">
+							<Person />
 						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
+						<Route exact path="/Planet/:id">
+							<Planet />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
