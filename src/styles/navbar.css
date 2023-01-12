@@ -1,9 +1,10 @@
-
-
 img{
     margin-left: 150px;
     width: 80px;
 }
 button{
     margin-right: 220px;
+}
+.navbar{
+    background: rgb(139, 138, 138);
 }

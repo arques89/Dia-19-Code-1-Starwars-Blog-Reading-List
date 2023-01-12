@@ -1,45 +1,92 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			character: [],
+			characterData: [],
+			planets: [],
+			planetsData: [],
+			favorites: []
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
+			getCharacters: () =>
+			{
+					fetch("https://www.swapi.tech/api/people/")
 
-				//reset the global store
-				setStore({ demo: demo });
+				.then(res => 
+				{
+					if(!res.ok) throw Error(res.statusText)
+					return res.json()
+				})
+				.then(data => 
+				{
+					setStore({character: data.results})
+				})
+				
+			},
+		
+			getAllCharacters: () => {
+				
+				for(let i = 1; i <= 10; i++){
+
+					fetch(`https://www.swapi.tech/api/people/${i}`)
+					.then(res => {
+						if(!res.ok) throw Error(res.statusText)
+						return res.json()
+					})
+					.then(data => {
+						
+						setStore({characterData: getStore().characterData.concat(data.result) })
+						
+					})
+				}
+			},
+
+			getPlanets: () => {
+
+				fetch(`https://www.swapi.tech/api/planets/`)
+
+				.then(res => 
+				{
+					if(!res.ok) throw Error(res.statusText)
+					return res.json()
+				})
+				.then(data => 
+				{	
+					setStore({planets: data.results})
+				})
+			},
+
+			getAllPlanets: () => {
+
+				for(let i = 1; i <= 10; i++){
+
+					fetch(`https://www.swapi.tech/api/planets/${i}`)
+					.then(res => {
+						if(!res.ok) throw Error(res.statusText)
+						
+						return res.json()
+					})
+					.then(data => {
+						setStore({planetsData: getStore().planetsData.concat(data.result) })
+					})
+				}
+			},
+			
+			addFavorites: (obj) => {
+				setStore({favorites: [...getStore().favorites, obj]})
+			},
+
+			delFavorites: (array) => {
+				setStore({favorites: array})
 			}
+
+		}
 		}
 	};
-};
+
+
+
+
 
 export default getState;
